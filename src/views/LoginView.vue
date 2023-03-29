@@ -1,3 +1,5 @@
+
+
 <script setup>
 import { reactive, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -28,8 +30,8 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <main class="grid grid-cols-12 gap-4 min-h-screen">
-    <section class="col-span-6 bg-white h-full shadow-xl">
+  <main class="grid grid-cols-12 gap-0 min-h-screen justify-center content-center">
+    <section class="col-span-6 h-full shadow-xl ">
       <form
         method="post"
         :action="route.path"
@@ -37,7 +39,7 @@ const onSubmit = async () => {
         @submit.prevent="onSubmit"
       >
         <div class="mb-4">
-          <label for="email" class="block mb-2">Email</label>
+          <label for="email" class="block mb-2 text-[#4FF8F4] font-semibold">Email</label>
           <input
             v-model="credentials.email"
             type="email"
@@ -47,7 +49,7 @@ const onSubmit = async () => {
           />
         </div>
         <div class="mb-4">
-          <label for="password" class="block mb-2">Password</label>
+          <label for="password" class="block mb-2 text-[#4FF8F4] font-semibold">Password</label>
           <input
             v-model="credentials.password"
             type="password"
@@ -57,7 +59,7 @@ const onSubmit = async () => {
         </div>
         <button
           type="submit"
-          class="bg-blue-600 text-white p-2 w-full block hover:bg-blue-800 rounded transition-colors duration-200 select-none"
+          class="bg-[#4FF8F4] text-[#001D30] p-2 w-full block hover:bg-[#50E8ED] rounded transition-colors duration-200 select-none"
         >
           Masuk
         </button>
