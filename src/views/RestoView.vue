@@ -2,6 +2,8 @@
 import { useRestoRepository } from "@/composables";
 import { ref, onMounted } from "vue";
 import BaseCard from "../components/BaseCard.vue";
+import BaseContainer from "../components/BaseContainer.vue";
+
 
 const repository = useRestoRepository();
 const isLoading = ref(true);
@@ -77,26 +79,24 @@ const excerpt = (text, maxLenght = 10, indicator = "...") => {
           md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0
         "
       >
-        <router-link to="Home" ><li class="text-gray-100 hover:text-[#4FF8F4]">Home</li></router-link>
-        <router-link to="Home" ><li class="text-gray-100 hover:text-[#4FF8F4]">About</li></router-link>
-        <router-link to="Home" ><li class="text-gray-100 hover:text-[#4FF8F4]">Contact Us</li></router-link>
-        <router-link to="Home" ><li class="text-gray-100 hover:text-[#4FF8F4]">Create Resto</li></router-link>
+        <router-link to="" ><li class="text-gray-100 hover:text-[#4FF8F4]">Home</li></router-link>
+        <router-link to="" ><li class="text-gray-100 hover:text-[#4FF8F4]">About</li></router-link>
+        <router-link to="" ><li class="text-gray-100 hover:text-[#4FF8F4]">Contact Us</li></router-link>
+        <router-link to="" ><li class="text-gray-100 hover:text-[#4FF8F4]">Create Resto</li></router-link>
       </ul>
     </nav>
   </div>
-  <div class="min-h-screen container mx-auto">
-    <div class="grid grid-cols-12 gap-4 py-4">
+  <BaseContainer>
+    <div class="grid grid-cols-12 gap-4">
       <div v-for="resto in restos" :key="resto.id" class="col-span-4">
         <!-- Card -->
         <BaseCard :to="{ name: 'restos-show', params: { id: resto.id } }">
-          <template #title>
-            {{ resto.name }}
-          </template>
+          <template #title>{{ resto.name }}</template>
           {{ excerpt(resto.description, 40) }}
         </BaseCard>
       </div>
     </div>
-  </div>
+  </BaseContainer>
 </template>
 <script>
 import { ref } from 'vue';
